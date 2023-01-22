@@ -1,23 +1,36 @@
 <h1 align="center">Welcome to Video Batch Cutter 👋</h1>
-<p>
-  <a href="https://twitter.com/ErickSantosS12" target="_blank">
-    <img alt="Twitter: ErickSantosS12" src="https://img.shields.io/twitter/follow/ErickSantosS12.svg?style=social" />
-  </a>
-</p>
+
 
 > Cut videos with multiple timestamps using ffmpeg and python
 
 ## Install
 
 ```sh
+git clone https://github.com/ericksantos12/ffmpeg-cropper.git
+
+cd ffmpeg-cropper
+
 pip install -r requirements.txt
 ```
 
 ## Usage
+Create a `cuts.csv` file in source directory and add title, start, and end timestamps in the following format separated by commas, line by line for the respective cuts:
 
+```
+filename,start_timestamp,end_timestamp
+```
+### Example
+```
+video1.mp4,00:00:01,00:02:00
+video2.mp4,00:02:01,00:03:00
+```
+**Important:** do not forget the file format in the title, it needs to correspond to the original file format
+
+After that you can execute the script
 ```sh
 python app.py
 ```
+After being prompted with the menu, just follow the instructions in terminal
 
 ## Author
 
