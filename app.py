@@ -1,9 +1,13 @@
 import subprocess
 import os
 
-from rich import print
+from rich.console import Console
+from rich.prompt import Prompt
 from rich.progress import track
-# from rich.progress import Progress
+from rich.panel import Panel
+from rich.layout import Layout
+from rich.traceback import install
+install()
 
 # progress = Progress()
 
@@ -11,6 +15,8 @@ from rich.progress import track
 #   TODO implement convert to mp3
 
 OUTPUT_DIR = "./output"
+console = Console()
+
 
 def menu():
     pass
@@ -19,9 +25,16 @@ def menu():
 def ffmpeg_cut(video_path, output_path=OUTPUT_DIR):
     with open("cuts.csv") as f:
         for line in track(f.readlines(), description="Cutting..."):
+
             filename, start, end = line.strip().split(',')
-            cmd = ["ffmpeg", "-i", video_path, "-ss", start, "-to",
-                   end, "-c", "copy", os.path.join(output_path, filename)]
+            output_video_path = os.path.join(output_path, filename)
+
+            if not os.path.isfile(output_video_path):
+                cmd = ["ffmpeg", "-i", video_path, "-ss", start, "-to", end, "-c", "copy", output_video_path]
+
+                subprocess.run(cmd, stdout=subprocess.DEVNULL, stderr=subprocess.STDOUT)
+
+
 
             # progress.log(f"Cutting {filename} from {start} to {end}")
             subprocess.run(cmd, stdout=subprocess.DEVNULL,
