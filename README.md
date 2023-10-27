@@ -4,6 +4,7 @@
 > Cut videos with multiple timestamps using ffmpeg and python
 
 ## Install
+First, you need to install [ffmpeg](https://ffmpeg.org/download.html)
 
 ```sh
 git clone https://github.com/ericksantos12/ffmpeg-cropper.git
@@ -21,8 +22,8 @@ filename,start_timestamp,end_timestamp
 ```
 ### Example
 ```
-video1.mp4,00:00:01,00:02:00
-video2.mp4,00:02:01,00:03:00
+video1,00:00:01,00:02:00
+video2,00:02:01,00:03:00
 ```
 **Important:** do not forget the file format in the title, it needs to correspond to the original file format
 
@@ -31,6 +32,12 @@ After that you can execute the script
 python app.py
 ```
 After being prompted with the menu, just follow the instructions in terminal
+
+## TODO
+- Implement a way to write to the cuts file via terminal
+- Implement a better menu
+- Implement a feature to download videos using yt-dlp and cut them using ffmpeg
+- Implement a quick cut option
 
 ## Author
 
