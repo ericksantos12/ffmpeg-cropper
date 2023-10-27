@@ -30,7 +30,7 @@ def ffmpeg_cut(video_path, output_path=OUTPUT_DIR):
         for line in track(f.readlines(), description="Cutting..."):
 
             filename, start, end = line.strip().split(',')
-            output_video_path = os.path.join(output_path, filename)
+            output_video_path = os.path.join(output_path, filename + ".mp4")
 
             if not os.path.isfile(output_video_path):
                 cmd = ["ffmpeg", "-i", video_path, "-ss", start, "-to", end, "-c", "copy", output_video_path]
