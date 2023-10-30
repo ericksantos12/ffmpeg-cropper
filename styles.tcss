@@ -1,0 +1,44 @@
+#label_directory, #directory_tree {
+    margin: 1;
+}
+
+#label_directory {
+    width: 100%;
+    content-align: center middle;
+}
+
+#directory_tree {
+    height: 1fr;
+}
+
+Timestamp {
+    background: $boost;
+    margin: 1;
+    padding: 1;
+    layout: grid;
+    grid-size: 3;
+    min-width: 90;
+}
+Timestamp Label {
+    margin-left: 1;
+    padding-bottom: 1;
+}
+
+TimestampHeader, TimestampFooter {
+    layout: horizontal;
+    padding: 1;
+    background: $panel;
+    min-width: 90;
+}
+
+TimestampFooter Horizontal, TimestampHeader Horizontal{
+    height: auto;
+}
+
+Horizontal.right {
+    align-horizontal: right;
+}
+
+ProcessingView Container {
+    align: center middle;
+}
